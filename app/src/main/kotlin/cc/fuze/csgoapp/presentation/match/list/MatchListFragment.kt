@@ -29,8 +29,8 @@ class MatchListFragment : Fragment() {
 
         setupRecycler()
         setupObservers()
-
-        vm.init()
+        setupListeners()
+        vm.refresh()
     }
 
     private fun setupRecycler() {
@@ -40,7 +40,15 @@ class MatchListFragment : Fragment() {
     private fun setupObservers() {
         vm.matchesLiveData.observe(viewLifecycleOwner) {
             adapter.matches = it
-            adapter.notifyDataSetChanged()
+            adapter.notifyItemRangeChanged(0, it.size)
+            binding?.loading?.visibility = View.GONE
+            binding?.matchesSwipeRefreshLayout?.isRefreshing = false
+        }
+    }
+
+    private fun setupListeners() {
+        binding?.matchesSwipeRefreshLayout?.setOnRefreshListener {
+            vm.refresh()
         }
     }
 

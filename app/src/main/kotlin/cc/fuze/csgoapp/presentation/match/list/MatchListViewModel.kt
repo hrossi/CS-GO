@@ -15,7 +15,7 @@ class MatchListViewModel(
     private val _matchesLiveData = MutableLiveData<List<Match>>()
     val matchesLiveData: LiveData<List<Match>> = _matchesLiveData
 
-    fun init() {
+    fun refresh() {
         viewModelScope.launch {
             _matchesLiveData.value = repository.getCsGoMatches()
         }
