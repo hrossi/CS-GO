@@ -1,4 +1,4 @@
-package cc.fuze.csgoapp.view.match.detail
+package cc.fuze.csgoapp.presentation.match.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater

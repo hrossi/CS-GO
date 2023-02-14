@@ -1,12 +1,13 @@
-package cc.fuze.csgoapp.view.match.list
+package cc.fuze.csgoapp.presentation.match.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cc.fuze.csgoapp.databinding.ItemMatchListBinding
+import cc.fuze.csgoapp.domain.Match
 
 class MatchAdapter(
-    private val matches: List<String>, // TODO - Change View Type
+    var matches: List<Match>, // TODO - Change View Type
     private val onMatchClick: () -> Unit
 ) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
@@ -30,8 +31,8 @@ class MatchAdapter(
 
     inner class ViewHolder(val item: ItemMatchListBinding) : RecyclerView.ViewHolder(item.root) {
 
-        fun bind(match: String) {
-            item.descriptionTextView.text = match
+        fun bind(match: Match) {
+            item.descriptionTextView.text = match.name
         }
     }
 }

@@ -1,10 +1,9 @@
-package cc.fuze.csgoapp.view
+package cc.fuze.csgoapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cc.fuze.csgoapp.R
-import cc.fuze.csgoapp.view.match.detail.MatchDetailFragment
-import cc.fuze.csgoapp.view.match.list.MatchListFragment
+import cc.fuze.csgoapp.presentation.match.list.MatchListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
