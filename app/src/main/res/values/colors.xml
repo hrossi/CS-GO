@@ -10,4 +10,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white__20">#33FFFFFF</color>
+
+    <color name="translucent">#00FFFFFF</color>
+
+    <color name="background_color">#161621</color>
 </resources>

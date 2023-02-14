@@ -10,10 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rectangle_gradient"
+            android:elevation="200dp"
+            android:paddingStart="24dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="60dp"
+            android:text="@string/matches"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchesRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="64dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
