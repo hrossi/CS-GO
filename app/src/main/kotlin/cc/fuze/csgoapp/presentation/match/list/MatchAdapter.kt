@@ -1,5 +1,6 @@
 package cc.fuze.csgoapp.presentation.match.list
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -31,10 +32,11 @@ class MatchAdapter(
         return matches.size
     }
 
-    inner class ViewHolder(val item: ItemMatchListBinding) : RecyclerView.ViewHolder(item.root) {
+    inner class ViewHolder(private val item: ItemMatchListBinding) : RecyclerView.ViewHolder(item.root) {
 
+        @SuppressLint("SetTextI18n")
         fun bind(match: Match) {
-            item.leagueNameTextView.text = match.league.name
+            item.leagueNameTextView.text = "${match.league.name} / ${match.serie.name}"
 
             item.leagueIconImageView.load(match.league.image)
 
