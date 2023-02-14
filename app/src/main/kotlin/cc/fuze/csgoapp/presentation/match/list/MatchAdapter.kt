@@ -3,8 +3,10 @@ package cc.fuze.csgoapp.presentation.match.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import cc.fuze.csgoapp.R
 import cc.fuze.csgoapp.databinding.ItemMatchListBinding
 import cc.fuze.csgoapp.domain.Match
+import coil.load
 
 class MatchAdapter(
     var matches: List<Match>, // TODO - Change View Type
@@ -32,7 +34,24 @@ class MatchAdapter(
     inner class ViewHolder(val item: ItemMatchListBinding) : RecyclerView.ViewHolder(item.root) {
 
         fun bind(match: Match) {
-            item.descriptionTextView.text = match.name
+            item.leagueNameTextView.text = match.league.name
+
+            item.leagueIconImageView.load(match.league.image)
+
+            if (match.opponents?.size == 2) {
+                val t1 = match.opponents[0]
+                val t2 = match.opponents[1]
+
+                item.t1Icon.load(t1.opponent.image){
+                    error(R.drawable.shape_circle_gray)
+                }
+                item.t1NameTextView.text = t1.opponent.name
+
+                item.t2Icon.load(t2.opponent.image){
+                    error(R.drawable.shape_circle_gray)
+                }
+                item.t2NameTextView.text = t2.opponent.name
+            }
         }
     }
 }

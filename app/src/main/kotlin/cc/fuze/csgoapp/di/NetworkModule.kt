@@ -1,7 +1,7 @@
 package cc.fuze.csgoapp.di
 
 import cc.fuze.csgoapp.BuildConfig
-import cc.fuze.csgoapp.data.remote.PandaScoreService
+import cc.fuze.csgoapp.data.remote.api.PandaScoreService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CS GO</string>
+    <string name="now">AGORA</string>
+    <string name="versus">vs</string>
 </resources>
