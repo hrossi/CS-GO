@@ -2,6 +2,7 @@ package cc.fuze.csgoapp
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
+import cc.fuze.csgoapp.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -20,7 +21,9 @@ class CSGOApplication : Application() {
             androidLogger()
             androidContext(this@CSGOApplication)
             modules(
-                listOf()
+                listOf(
+                    networkModule
+                )
             )
         }
     }
