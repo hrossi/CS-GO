@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import cc.fuze.csgoapp.data.MatchRepository
 import cc.fuze.csgoapp.domain.Match
 import kotlinx.coroutines.launch
+import java.util.*
 
 class MatchListViewModel(
     private val repository: MatchRepository
@@ -17,7 +18,11 @@ class MatchListViewModel(
 
     fun refresh() {
         viewModelScope.launch {
-            _matchesLiveData.value = repository.getCsGoMatches()
+            _matchesLiveData.value = repository.getCsGoMatches().filter {
+                it.date != null && it.date.after(Date())
+            }.sortedBy {
+                it.date
+            }
         }
     }
 }

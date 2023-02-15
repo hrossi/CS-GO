@@ -54,13 +54,17 @@ class MatchAdapter(
                 val t1 = match.opponents[0]
                 val t2 = match.opponents[1]
 
-                item.t1Icon.load(t1.opponent.image){
+                item.t1Icon.load(t1.opponent.image) {
                     error(R.drawable.shape_circle_gray)
+                    placeholder(R.drawable.shape_circle_gray)
+                    fallback(R.drawable.shape_circle_gray)
                 }
                 item.t1NameTextView.text = t1.opponent.name
 
-                item.t2Icon.load(t2.opponent.image){
+                item.t2Icon.load(t2.opponent.image) {
                     error(R.drawable.shape_circle_gray)
+                    placeholder(R.drawable.shape_circle_gray)
+                    fallback(R.drawable.shape_circle_gray)
                 }
                 item.t2NameTextView.text = t2.opponent.name
             }
