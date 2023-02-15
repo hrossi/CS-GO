@@ -3,11 +3,14 @@ package cc.fuze.csgoapp.presentation.match.list
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import cc.fuze.csgoapp.R
 import cc.fuze.csgoapp.databinding.ItemMatchListBinding
 import cc.fuze.csgoapp.domain.Match
 import coil.load
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MatchAdapter(
     var matches: List<Match>, // TODO - Change View Type
@@ -39,6 +42,13 @@ class MatchAdapter(
             item.leagueNameTextView.text = "${match.league.name} / ${match.serie.name}"
 
             item.leagueIconImageView.load(match.league.image)
+
+            val sdf = SimpleDateFormat("dd.MM HH:mm", Locale.getDefault())
+
+            match.date?.let {
+                item.whenTextView.text = sdf.format(it)
+                item.whenTextView.background = AppCompatResources.getDrawable(item.whenTextView.context, R.drawable.shape_match_item_hug_gray)
+            }
 
             if (match.opponents?.size == 2) {
                 val t1 = match.opponents[0]

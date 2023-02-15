@@ -17,11 +17,15 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
+        android:id="@+id/whenTextView"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:background="@drawable/shape_match_item_hug"
+        android:background="@drawable/shape_match_item_hug_gray"
         android:gravity="center"
-        android:padding="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="12dp"
+        android:paddingBottom="8dp"
         android:text="@string/now"
         android:textColor="@color/white"
         android:textSize="8sp"

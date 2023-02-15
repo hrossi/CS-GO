@@ -10,5 +10,5 @@ data class Match(
     val serie: Serie,
     val opponents: List<Opponents>?,
     @SerializedName("begin_at")
-    val date: Date
+    val date: Date?
 )
