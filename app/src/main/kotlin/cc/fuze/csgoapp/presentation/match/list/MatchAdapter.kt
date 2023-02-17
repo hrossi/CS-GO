@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MatchAdapter(
-    var matches: List<Match>, // TODO - Change View Type
+    var matches: List<Match>,
     private val onMatchClick: (Match) -> Unit
 ) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 

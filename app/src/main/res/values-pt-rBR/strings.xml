@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CS GO</string>
+
+    <string name="now">AGORA</string>
+    <string name="versus">vs</string>
+    <string name="matches">Partidas</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="ooppss">Opss..</string>
+    <string name="try_again_later">Finalizando aplicação, tente novamente mais tarde.</string>
+    <string name="error_getting_match_list_message">Não conseguimos buscar as partidas em adamento, gostaria de tentar novamente?</string>
+    <string name="error_getting_match_details">Ooops, não conseguimos buscar os detalhes desta partida.</string>
+</resources>

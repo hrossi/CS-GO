@@ -7,18 +7,32 @@ import androidx.lifecycle.viewModelScope
 import cc.fuze.csgoapp.data.MatchRepository
 import cc.fuze.csgoapp.domain.Match
 import kotlinx.coroutines.launch
-import java.util.*
 
 class MatchListViewModel(
     private val repository: MatchRepository
 ) : ViewModel() {
 
-    private val _matchesLiveData = MutableLiveData<List<Match>>()
-    val matchesLiveData: LiveData<List<Match>> = _matchesLiveData
+    private val _matchListStateLiveData = MutableLiveData<MatchListState>()
+    val matchListStateLiveData: LiveData<MatchListState> = _matchListStateLiveData
 
     fun refresh() {
         viewModelScope.launch {
-            _matchesLiveData.value = repository.getCsGoMatches()
+            _matchListStateLiveData.value = MatchListState.Loading
+            runCatching {
+                _matchListStateLiveData.value = MatchListState.Success(repository.getCsGoMatches())
+            }.onFailure {
+                _matchListStateLiveData.value = MatchListState.Error
+            }
         }
     }
+}
+
+sealed class MatchListState {
+    object Loading : MatchListState()
+
+    data class Success(
+        val matches: List<Match>
+    ) : MatchListState()
+
+    object Error : MatchListState()
 }

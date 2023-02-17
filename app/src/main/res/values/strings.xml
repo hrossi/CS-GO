@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">CS GO</string>
-    <string name="now">AGORA</string>
+
+    <string name="now">Now</string>
     <string name="versus">vs</string>
-    <string name="matches">Partidas</string>
+    <string name="matches">Matches</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ooppss">Opss..</string>
+    <string name="try_again_later">Finishing the application, try again later.</string>
+    <string name="error_getting_match_list_message">We were not able to fetch the current matches. Would you like to try again?</string>
+    <string name="error_getting_match_details">Ooops, something went wrong getting match details</string>
 </resources>

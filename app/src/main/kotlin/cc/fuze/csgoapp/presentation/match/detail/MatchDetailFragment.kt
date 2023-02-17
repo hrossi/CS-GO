@@ -64,7 +64,7 @@ class MatchDetailFragment : Fragment() {
                 }
                 is MatchDetailState.Error -> {
                     hideLoading()
-                    Toast.makeText(requireContext(), "Ooops, something went wrong getting match details", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), R.string.error_getting_match_details, Toast.LENGTH_LONG).show()
                     activity?.onBackPressed()
                 }
             }
