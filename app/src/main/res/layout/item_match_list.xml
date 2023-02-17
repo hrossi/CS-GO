@@ -39,7 +39,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="@id/divider"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/versusTextView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@id/t1Icon" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/versusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/versus"
@@ -73,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="@id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/versusTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

@@ -12,6 +12,6 @@ val viewModelModule = module {
     }
 
     viewModel {
-        MatchDetailViewModel()
+        MatchDetailViewModel(get(), get())
     }
 }

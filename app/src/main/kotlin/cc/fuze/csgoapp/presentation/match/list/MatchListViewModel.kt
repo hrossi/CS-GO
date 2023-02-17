@@ -18,11 +18,7 @@ class MatchListViewModel(
 
     fun refresh() {
         viewModelScope.launch {
-            _matchesLiveData.value = repository.getCsGoMatches().filter {
-                it.date != null && it.date.after(Date())
-            }.sortedBy {
-                it.date
-            }
+            _matchesLiveData.value = repository.getCsGoMatches()
         }
     }
 }

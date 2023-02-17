@@ -14,7 +14,7 @@ import java.util.*
 
 class MatchAdapter(
     var matches: List<Match>, // TODO - Change View Type
-    private val onMatchClick: () -> Unit
+    private val onMatchClick: (Match) -> Unit
 ) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,7 +27,7 @@ class MatchAdapter(
         val match = matches[position]
         holder.bind(match)
         holder.itemView.setOnClickListener {
-            onMatchClick()
+            onMatchClick(match)
         }
     }
 
@@ -47,7 +47,8 @@ class MatchAdapter(
 
             match.date?.let {
                 item.whenTextView.text = sdf.format(it)
-                item.whenTextView.background = AppCompatResources.getDrawable(item.whenTextView.context, R.drawable.shape_match_item_hug_gray)
+                item.whenTextView.background =
+                    AppCompatResources.getDrawable(item.whenTextView.context, R.drawable.shape_match_item_hug_gray)
             }
 
             if (match.opponents?.size == 2) {
@@ -67,6 +68,9 @@ class MatchAdapter(
                     fallback(R.drawable.shape_circle_gray)
                 }
                 item.t2NameTextView.text = t2.opponent.name
+            } else {
+                item.t2Icon.load(null)
+                item.t2Icon.load(null)
             }
         }
     }

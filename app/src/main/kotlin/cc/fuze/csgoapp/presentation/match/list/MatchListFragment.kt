@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import cc.fuze.csgoapp.R
 import cc.fuze.csgoapp.databinding.FragmentMatchListBinding
+import cc.fuze.csgoapp.domain.Match
 import cc.fuze.csgoapp.presentation.match.detail.MatchDetailFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -52,9 +53,9 @@ class MatchListFragment : Fragment() {
         }
     }
 
-    private fun onMatchClickListener() {
+    private fun onMatchClickListener(match: Match) {
         parentFragmentManager.beginTransaction().also {
-            it.replace(R.id.container, MatchDetailFragment.newInstance())
+            it.replace(R.id.container, MatchDetailFragment.newInstance(match))
             it.addToBackStack("MatchDetailFragment")
             it.commit()
         }
