@@ -2,6 +2,7 @@ plugins {
     id "com.android.application"
     id "org.jetbrains.kotlin.android"
     id "kotlin-parcelize"
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
@@ -49,6 +50,9 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation "androidx.core:core-splashscreen:1.0.0"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
     implementation "io.insert-koin:koin-core:3.3.3"
     implementation "io.insert-koin:koin-android:3.3.3"

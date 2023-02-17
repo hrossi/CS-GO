@@ -15,6 +15,10 @@ class MatchListViewModel(
     private val _matchListStateLiveData = MutableLiveData<MatchListState>()
     val matchListStateLiveData: LiveData<MatchListState> = _matchListStateLiveData
 
+    init {
+        refresh()
+    }
+
     fun refresh() {
         viewModelScope.launch {
             _matchListStateLiveData.value = MatchListState.Loading

@@ -8,10 +8,10 @@ import cc.fuze.csgoapp.data.MatchRepository
 import cc.fuze.csgoapp.data.TeamRepository
 import cc.fuze.csgoapp.domain.Match
 import cc.fuze.csgoapp.domain.Player
+import cc.fuze.csgoapp.presentation.match.list.MatchListState
 import kotlinx.coroutines.launch
 
 class MatchDetailViewModel(
-    private val matchRepository: MatchRepository,
     private val teamRepository: TeamRepository
 ) : ViewModel() {
 

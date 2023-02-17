@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/matchListFragment">
+
+    <fragment
+        android:id="@+id/matchListFragment"
+        android:name="cc.fuze.csgoapp.presentation.match.list.MatchListFragment"
+        android:label="MatchListFragment" >
+        <action
+            android:id="@+id/action_matchListFragment_to_matchDetailFragment"
+            app:destination="@id/matchDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchDetailFragment"
+        android:name="cc.fuze.csgoapp.presentation.match.detail.MatchDetailFragment"
+        android:label="MatchDetailFragment" >
+        <argument
+            android:name="match"
+            app:argType="cc.fuze.csgoapp.domain.Match" />
+    </fragment>
+</navigation>

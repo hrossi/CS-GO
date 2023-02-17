@@ -14,9 +14,6 @@ interface PandaScoreService {
         @Query("opponents_filled") withOpponents: Boolean = true
     ): List<Match>
 
-    @GET("csgo/matches/{matchId}")
-    suspend fun getCsGoMatch(@Path("matchId") matchId: String): Match
-
     @GET("csgo/teams")
     suspend fun getCsGoTeams(@Query("filter[id]") teamIds: String): List<Team>
 }

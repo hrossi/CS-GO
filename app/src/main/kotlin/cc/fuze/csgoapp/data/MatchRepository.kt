@@ -10,8 +10,4 @@ class MatchRepository(private val service: PandaScoreService) {
             it.opponents?.size == 2
         }
     }
-
-    suspend fun getCsGoMatch(matchId: String): Match {
-        return service.getCsGoMatch(matchId)
-    }
 }

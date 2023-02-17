@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import cc.fuze.csgoapp.R
 import cc.fuze.csgoapp.databinding.FragmentMatchDetailBinding
 import cc.fuze.csgoapp.domain.Match
@@ -24,6 +25,8 @@ class MatchDetailFragment : Fragment() {
 
     private val adapter = PlayerAdapter(emptyList())
 
+    private val args: MatchDetailFragmentArgs by navArgs()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return FragmentMatchDetailBinding.inflate(inflater, container, false).also {
             binding = it
@@ -32,18 +35,11 @@ class MatchDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupToolbar()
-
-        val match = arguments?.getParcelable("MATCH") as? Match ?: throw Error()
 
         setupRecycler()
-
         observeData()
 
-        vm.init(match)
-    }
-
-    private fun setupToolbar() {
+        vm.init(args.match)
     }
 
     private fun setupRecycler() {
