@@ -2,12 +2,14 @@ package cc.fuze.csgoapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import cc.fuze.csgoapp.R
 import cc.fuze.csgoapp.presentation.match.list.MatchListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction().also {
