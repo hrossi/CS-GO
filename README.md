@@ -20,3 +20,4 @@ Libraries / Technologies:
 - OkHttp
 - Gson
 - Coil
+- Jetpack Navigation + SafeArgs
