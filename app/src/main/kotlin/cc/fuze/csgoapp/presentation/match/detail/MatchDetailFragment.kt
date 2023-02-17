@@ -40,7 +40,7 @@ class MatchDetailFragment : Fragment() {
 
         observeData()
 
-        vm.getMatchDetails(match)
+        vm.init(match)
     }
 
     private fun setupToolbar() {
@@ -64,7 +64,8 @@ class MatchDetailFragment : Fragment() {
                 }
                 is MatchDetailState.Error -> {
                     hideLoading()
-                    Toast.makeText(requireContext(), "Ooops, something went wrong", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "Ooops, something went wrong getting match details", Toast.LENGTH_LONG).show()
+                    activity?.onBackPressed()
                 }
             }
         }

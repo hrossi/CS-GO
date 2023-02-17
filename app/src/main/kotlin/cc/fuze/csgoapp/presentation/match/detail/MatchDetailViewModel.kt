@@ -18,27 +18,35 @@ class MatchDetailViewModel(
     private val _matchDetailsState = MutableLiveData<MatchDetailState>()
     val matchDetailsLiveData: LiveData<MatchDetailState> = _matchDetailsState
 
-    fun getMatchDetails(match: Match) {
+    fun init(match: Match) {
         viewModelScope.launch {
-            val ids = match.opponents?.map {
-                it.opponent.id
+            runCatching {
+                _matchDetailsState.value = getMatchDetails(match)
+            }.onFailure {
+                _matchDetailsState.value = MatchDetailState.Error
             }
-
-            val teams = teamRepository.getTeams(*ids!!.toTypedArray())
-
-            val t1 = teams[0]
-            val t2 = teams[1]
-
-            val n = minOf(t1.players.size, t2.players.size)
-
-            val players = mutableListOf<Pair<Player, Player>>()
-
-            for (i in 0 until n) {
-                players.add(Pair(t1.players[i], t2.players[i]))
-            }
-
-            _matchDetailsState.value = MatchDetailState.Success(match, players)
         }
+    }
+
+    private suspend fun getMatchDetails(match: Match): MatchDetailState.Success {
+        val ids = match.opponents?.map {
+            it.opponent.id
+        }
+
+        val teams = teamRepository.getTeams(*ids!!.toTypedArray())
+
+        val t1 = teams[0]
+        val t2 = teams[1]
+
+        val n = minOf(t1.players.size, t2.players.size)
+
+        val players = mutableListOf<Pair<Player, Player>>()
+
+        for (i in 0 until n) {
+            players.add(Pair(t1.players[i], t2.players[i]))
+        }
+
+        return MatchDetailState.Success(match, players)
     }
 }
 
