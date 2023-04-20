@@ -1,5 +1,7 @@
 # CS:GO
 
+## Test 2
+
 This application displays upcoming CS:GO matches and its details.
 
 We are fetching the data from [Panda Score](https://pandascore.co/) API.
