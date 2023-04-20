@@ -19,3 +19,5 @@
 .cxx
 
 local.properties
+
+*.apk
